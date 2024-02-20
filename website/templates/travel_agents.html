@@ -1,0 +1,34 @@
+<!-- travel_agents.html -->
+
+{% extends "base.html" %} {% block title %}Travel Agents{% endblock %} {% block
+content %}
+<div class="container">
+  <h1 class="mt-5">Travel Agents</h1>
+
+  <form method="POST" class="mb-3">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        name="location"
+        placeholder="Search by Location"
+      />
+      <button type="submit" class="btn btn-dark">Search</button>
+    </div>
+  </form>
+
+  <div class="row">
+    {% for agent in agents %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ agent.name }}</h5>
+          <p class="card-text">Contact: {{ agent.contact }}</p>
+          <p class="card-text">Location: {{ agent.location }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

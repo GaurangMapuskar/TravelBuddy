@@ -1,0 +1,35 @@
+<!-- travelagent_form.html -->
+
+{% extends "base.html" %} {% block title %}Add Travel Agent{% endblock %} {%
+block content %}
+<div class="container">
+  <h1 class="mt-5">Add Travel Agent</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Agent Name</label>
+      <input type="text" class="form-control" id="name" name="name" required />
+    </div>
+    <div class="mb-3">
+      <label for="contact" class="form-label">Contact Details</label>
+      <input
+        type="text"
+        class="form-control"
+        id="contact"
+        name="contact"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="location"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Agent</button>
+  </form>
+</div>
+{% endblock %}
