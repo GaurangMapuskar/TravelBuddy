@@ -1,0 +1,128 @@
+<html>
+<head>
+  <head>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename = 'style.css') }}"
+  />
+  <title>Places</title>
+  </head>
+  <body>
+{% extends "base.html" %} {% block title %}Places{% endblock %} {% block head %}  
+{% endblock %} {% block content %}
+<div class="hero">
+  <div class="hero-caption">
+    <h1>Explore Amazing Places</h1>
+    <p class="hero-subcaption">
+      Discover the beauty of our handpicked destinations
+    </p>
+  </div>
+</div>
+
+<section class="search-bar">
+  <div class="container">
+    <h2>Search Popular Destinations</h2>
+    <form action="#" class="search-destination">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search destination"
+      />
+      <button class="search-btn">Search</button>
+    </form>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service">
+        <i class="fas fa-globe"></i>
+        <h3>Easy to Connect</h3>
+        <p>Far far away, behind the word mountains...</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-user-tie"></i>
+        <h3>Best Travel Agent</h3>
+        <p>Far far away, behind the word mountains...</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-money-check-alt"></i>
+        <h3>Best Price Guarantee</h3>
+        <p>Far far away, behind the word mountains...</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Add your own styles for the remaining sections -->
+<section class="top-tour-packages">
+  <div class="container">
+    <h2 class="section-title">Top Tour Packages</h2>
+
+    <div class="row">
+      <!-- First card -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="../static/place1.jpg" class="card-img-top" alt="Place 1 Image">
+          <div class="card-body">
+            <h5 class="card-title">Mumbai</h5>
+            <p class="card-text">Cost: Rs.1000</p>
+            <p class="card-text">Ratings: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+            <p class="card-text">Duration: 5 days</p>
+            <a href="#" class="btn btn-buy"><i class="fas fa-shopping-cart"></i> Buy</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second card -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="../static/goa1.jpg" class="card-img-top" alt="Place 2 Image">
+          <div class="card-body">
+            <h5 class="card-title">Goa</h5>
+            <p class="card-text">Cost: Rs.1200</p>
+            <p class="card-text">Ratings: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+            <p class="card-text">Duration: 7 days</p>
+            <a href="#" class="btn btn-buy"><i class="fas fa-shopping-cart"></i> Buy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <img src="../static/rajasthan.jpg" class="card-img-top" alt="Place 2 Image">
+          <div class="card-body">
+            <h5 class="card-title">Rajasthan</h5>
+            <p class="card-text">Cost: Rs.1200</p>
+            <p class="card-text">Ratings: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+            <p class="card-text">Duration: 5-6 days</p>
+            <a href="#" class="btn btn-buy"><i class="fas fa-shopping-cart"></i> Buy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <img src="../static/manali.jpg" class="card-img-top" alt="Place 2 Image">
+          <div class="card-body">
+            <h5 class="card-title">Manali</h5>
+            <p class="card-text">Cost: Rs.1200</p>
+            <p class="card-text">Ratings: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+            <p class="card-text">Duration: 10 days</p>
+            <a href="#" class="btn btn-buy"><i class="fas fa-shopping-cart"></i> Buy</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third card -->
+      <!-- Add similar card structure for more places -->
+
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+  </body>
+</html>

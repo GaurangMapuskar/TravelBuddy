@@ -159,3 +159,10 @@ def travel_agents():
         agents = TravelAgent.query.all()
 
     return render_template("travel_agents.html", user=current_user, agents=agents)
+
+
+@views.route("/places", methods=['GET', 'POST'])
+@login_required
+def places():
+    return render_template("places.html", user=current_user)
+

@@ -1,0 +1,219 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define styles for the hero section */
+.hero {
+  background-image: url("travel5.jpg");
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero-caption {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-subcaption {
+  font-size: 1.2em;
+}
+
+/* Define styles for the search bar section */
+.search-bar {
+  background-color: transparent;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.search-destination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background-color: #d6614f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Define styles for the services section */
+.service-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service {
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.service:hover {
+  background-color: #d6614f;
+  color: #fff;
+}
+
+.service i {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #000; /* Initial color */
+  transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.service:hover i {
+  color: #fff; /* Color on hover */
+}
+
+.service h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #000; /* Initial color */
+  transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.service:hover h3 {
+  color: #fff; /* Color on hover */
+}
+
+.service p {
+  font-size: 1em;
+  color: #000; /* Initial color */
+  transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.service:hover p {
+  color: #fff; /* Color on hover */
+}
+
+.top-tour-packages {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.card {
+  width: 18rem;
+  margin: 0 auto;
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.top-tour-packages {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Scale on hover for an expansion effect */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow on hover */
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.btn-buy {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 50px; /* Make it round */
+  background-color: #d6614f; /* Set the specified color */
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: #c34a3d; /* Darker color on hover */
+}
+/* ... Add your own styles for the remaining sections ... */
