@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from flask_login import login_required, current_user
 from .models import Post, User, Comment, Like, TravelAgent
 from . import db
-
+import streamlit as st
 
 views = Blueprint("views", __name__)
 
@@ -128,7 +128,7 @@ def like(post_id):
 @views.route("/plan")
 @login_required
 def planner():
-    return render_template("planner.html", user=current_user)
+    return render_template("travel_planner.html", user=current_user)
 
 @views.route("/travel",  methods=["GET", "POST"])
 @login_required
@@ -165,4 +165,5 @@ def travel_agents():
 @login_required
 def places():
     return render_template("places.html", user=current_user)
+
 
