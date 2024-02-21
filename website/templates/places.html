@@ -23,13 +23,16 @@
 <section class="search-bar">
   <div class="container">
     <h2>Search Popular Destinations</h2>
-    <form action="#" class="search-destination">
+    <form action="/recommend" method="post" class="search-destination">
       <input
+      id = "city_input"
+      name="city_input"
         type="text"
         class="search-input"
-        placeholder="Search destination"
+        placeholder="Enter a City"
+        required
       />
-      <button class="search-btn">Search</button>
+      <button type="submit" class="search-btn">Recommend Cities</button>
     </form>
   </div>
 </section>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="static/style2.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommended Cities and Places</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Recommended Cities and Places</h1>
+      <ul class="city-list">
+        {% for city_info in data %}
+        <li class="city-item">
+          <h2>{{ city_info[0] }}</h2>
+          <!-- <p class="description">{{ city_info[1][:150] }}{% if city_info[1]|length > 150 %}...{% endif %}</p> -->
+          <p class="ratings">User Ratings: {{ city_info[3] }}</p>
+          <!-- card -->
+          <h3>Recommended Places</h3>
+
+          <ul class="place-list">
+            <li class="place-item">
+              {% for place_info in city_info[4] %}
+              <p class="place-name">Place: {{ place_info[0].split(' ')[2] }}</p>
+              <p class="place-description">Description: {{ place_info[1] }}</p>
+              <p class="place-ratings">Ratings: {{ place_info[2] }}</p>
+              <p class="place-distance">Distance: {{ place_info[3] }}</p>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- card end -->
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

@@ -2,10 +2,34 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from flask_login import login_required, current_user
 from .models import Post, User, Comment, Like, TravelAgent
 from . import db
+import numpy as np
+import pandas as pd
 import streamlit as st
+import requests
+import pickle
 
 views = Blueprint("views", __name__)
 
+# with open('website/city.pkl','rb') as file:
+#     city_data = pd.read_pickle(file)
+
+
+# with open('website/places.pkl','rb') as file:
+#     places_data = pd.read_pickle(file)
+
+
+# with open('website/similarity.pkl','rb') as file:
+#     similarity_data = pd.read_pickle(file)
+
+try:
+    city_data = pd.read_pickle(r'C:\Users\Nidhi S Nayak\Desktop\flask_travel\website\city.pkl')
+    print(city_data.keys())
+    places_data = pd.read_pickle(r'C:\Users\Nidhi S Nayak\Desktop\flask_travel\website\places.pkl')
+    similarity_data = pd.read_pickle(r'C:\Users\Nidhi S Nayak\Desktop\flask_travel\website\similarity.pkl')
+except Exception as e:
+    print("Error loading pickled files:", e)
+    city_data = {}
+    places_data = {}
 
 @views.route("/")
 @views.route("/home", methods=['GET', 'POST'])
@@ -20,6 +44,30 @@ def home():
         posts = Post.query.all()
 
     return render_template("home.html", user=current_user, posts=posts)
+
+@views.route('/recommend', methods=['POST'])
+def recommend():
+    user_input = request.form.get('city_input')
+    index = np.where(city_data['City'] == user_input)[0][0]
+    similar_cities = sorted(list(enumerate(similarity_data[index])), key=lambda x: x[1], reverse=True)[1:6]
+  
+    data = []
+
+    for i in similar_cities:
+        city_name = city_data.iloc[i[0]]['City']
+        city_desc = city_data.iloc[i[0]]['City_desc']
+        ideal_duration = city_data.iloc[i[0]]['Ideal_duration']
+        ratings = city_data.iloc[i[0]]['Ratings']
+
+        # Get recommended places for the current city
+        recommended_places = places_data[places_data['City'] == city_name].sort_values(by='Ratings', ascending=False).head(5)
+        place_data = []
+        for _, place in recommended_places.iterrows():
+            place_data.append((place['Place'], place['Place_desc'], place['Ratings'], place['Distance']))
+
+        data.append((city_name, city_desc, ideal_duration, ratings, place_data))
+
+    return render_template('recommend.html', data=data)
 
 
 @views.route("/create-post", methods=['GET', 'POST'])
@@ -147,6 +195,7 @@ def travel():
         return redirect(url_for("views.travel"))
     return render_template("travel.html", user=current_user)
 
+
 @views.route("/travel-agents", methods=['GET', 'POST'])
 @login_required
 def travel_agents():
@@ -166,4 +215,9 @@ def travel_agents():
 def places():
     return render_template("places.html", user=current_user)
 
+
+@views.route("/street-view", methods=['GET'])
+@login_required
+def street_view():
+    return render_template("street_view.html", user=current_user)
 

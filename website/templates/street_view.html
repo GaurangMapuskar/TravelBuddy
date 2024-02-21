@@ -1,0 +1,29 @@
+<!-- templates/street_view.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street View</title>
+    <style>
+      #street-view-container {
+        margin-top: 20px;
+      }
+    </style>
+    <script src="{{ url_for('static', filename='street_view.js') }}"></script>
+  </head>
+  <body>
+    <h1>Street View for Location: {{ location }}</h1>
+
+    <!-- Form to enter location -->
+    <form id="street-view-form">
+      <label for="location">Enter Location:</label>
+      <input type="text" id="locationInput" required />
+      <button type="button" onclick="showStreetView()">Show Street View</button>
+    </form>
+
+    <div id="street-view-container">
+      <!-- Map will be displayed here -->
+    </div>
+  </body>
+</html>
