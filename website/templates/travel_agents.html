@@ -20,7 +20,7 @@ content %}
   <div class="row">
     {% for agent in agents %}
     <div class="col-md-4 mb-4">
-      <div class="card">
+      <div class="card zoom-effect">
         <div class="card-body">
           <h5 class="card-title">{{ agent.name }}</h5>
           <p class="card-text">Contact: {{ agent.contact }}</p>
@@ -31,4 +31,19 @@ content %}
     {% endfor %}
   </div>
 </div>
+
+<style>
+  .zoom-effect {
+    transition: transform 0.3s;
+  }
+
+  .zoom-effect:hover {
+    transform: scale(1.05);
+  }
+
+  .zoom-effect:active {
+    transform: scale(1.1);
+  }
+</style>
+
 {% endblock %}

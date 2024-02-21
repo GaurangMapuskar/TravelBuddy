@@ -31,7 +31,7 @@ except Exception as e:
     city_data = {}
     places_data = {}
 
-@views.route("/")
+
 @views.route("/home", methods=['GET', 'POST'])
 @login_required
 def home():
@@ -96,7 +96,7 @@ def delete_post(id):
 
     if not post:
         flash("Post does not exist.", category='error')
-    elif current_user.id != post.id:
+    elif current_user.id != post.author:
         flash('You do not have permission to delete this post.', category='error')
     else:
         db.session.delete(post)
@@ -209,7 +209,7 @@ def travel_agents():
 
     return render_template("travel_agents.html", user=current_user, agents=agents)
 
-
+@views.route("/")
 @views.route("/places", methods=['GET', 'POST'])
 @login_required
 def places():

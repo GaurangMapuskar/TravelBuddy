@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 destination_template = PromptTemplate(
     input_variables=[

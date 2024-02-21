@@ -1,6 +1,91 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<h1 align="center">{% block header %}Posts{% endblock %}</h1>
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+
+  h1 {
+    text-align: center;
+    color: #000000;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+  }
+
+  .card:hover {
+    background-color: #e2e6ea;
+  }
+
+  .card-header {
+    background-color: #2e2a2b;
+    color: #fff;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .card-text {
+    font-size: 16px;
+  }
+
+  .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .btn-info {
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .btn-info:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+
+  .btn-dark:hover {
+    background-color: #292b2c;
+    border-color: #292b2c;
+  }
+
+  .btn-success {
+    background-color: #d6614f;
+    border-color: #ffffff;
+  }
+
+  .btn-success:hover {
+    background-color: #8e3a2d;
+    border-color: #ffffff;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+</style>
+
+<h1>Posts</h1>
+
 <form method="POST" class="mb-3">
   <div class="input-group">
     <input
@@ -12,11 +97,17 @@
     <button type="submit" class="btn btn-dark">Search</button>
   </div>
 </form>
+
 <div id="posts">
   {% for post in posts %}
   <div class="card border-dark">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <a href="/posts/{{post.user.username}}">{{post.user.username}}</a>
+      <a
+        href="/posts/{{post.user.username}}"
+        style="text-decoration: none; color: inherit"
+      >
+        @{{post.user.username}}
+      </a>
       <div>
         <span id="likes-count-{{post.id}}"> {{ post.likes|length }}</span>
         {% if user.id in post.likes|map(attribute="author")|list %}
@@ -58,8 +149,11 @@
             {% for comment in post.comments %}
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <a href="/posts/{{comment.user.username}}"
-                  >{{comment.user.username}}</a
+                <a
+                  href="/posts/{{comment.user.username}}"
+                  style="text-decoration: none; color: inherit"
+                >
+                  {{comment.user.username}} </a
                 >: {{comment.text}}
               </div>
               <div>
@@ -116,6 +210,7 @@
   </div>
   <br/ > {% endfor %}
 </div>
+
 {% block footer %}
 <div align="center">
   <a href="/create-post"
